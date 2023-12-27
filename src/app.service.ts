@@ -13,7 +13,7 @@ export class AppService {
   async getContributions(): Promise<any> {
     const body:Object = {
       "query": `query {
-          user(login: "Eliezir") {
+          user(login: "lucas7maciel") {
             name
             contributionsCollection {
               contributionCalendar {
@@ -49,14 +49,36 @@ export class AppService {
     return res.json();
   }
 
+  getLevel(val:number): number {
+    //trocar por switch
+    if (val >= 10) {
+      return 5
+    }
+
+    if (val >= 7) {
+      return 4
+    }
+
+    if (val >= 4) {
+      return 3
+    }
+
+    if (val >= 1) {
+      return 2
+    }
+
+    return 1
+  }
+
   async getContsByDay(): Promise<any> {
     const contributions: Object = await this.getContributions()
     const weeks = contributions["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
 
     //transformar em typescript
-    const formatedWeeks = weeks.map((week, index) => (
-      week["contributionDays"].map((day, index) => {
+    const formatedWeeks = weeks.map(week => (
+      week["contributionDays"].map(day => {
         return {
+          "level" : this.getLevel(day.contributionCount),
           "conts" : day.contributionCount,
           "date" : day.date
         }})
