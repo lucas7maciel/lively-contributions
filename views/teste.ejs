@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Uma View com EJS</title>
+  </head>
+  <script>
+    function getOne() {
+        return "one"
+    }
+
+    function getLevel(count) {
+        if (count >= 10) {
+            return "level-4"
+        } 
+
+        if (count >= 7) {
+            return "level-3"
+        }
+
+        if (count >= 3) {
+            return "level-2"
+        }
+
+        return "level-1"
+    }
+  </script>
+  <body>
+    <h1>NestJS com EJS!</h1>
+    <div class="graph">
+        <% for(var week = 0; week < weeks.length; week++) { %>
+
+            <div class="week">
+                <p style="font-weight: bold;"><%= week %> </p>
+                <% for (var day = 0; day < weeks[week].length; day++) { %>
+                    <day
+                        class={getOne()}
+                    ></day>
+
+                <% } %>
+            </div>
+
+        <% } %>
+    </div>
+  </body>
+  <style>
+    .graph {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .week {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 1rem;
+    }
+    
+    day {
+        display: block;
+        width: 20px;
+        aspect-ratio: 1;
+        background: yellow;
+    }
+
+  </style>
+</html>
