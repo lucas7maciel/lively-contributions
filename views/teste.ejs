@@ -1,66 +1,170 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Uma View com EJS</title>
-  </head>
   <body>
-    <h1>NestJS com EJS!</h1>
-    <% include('functions.ejs') %>
-    <div class="graph">
-        <% for(var week = 0; week < weeks.length; week++) { %>
+    <h1>Svg</h1>
+    <div class="container">
+        <svg viewBox="0 0 40 40" class="egg" style="border: solid 1px red">
+            <image 
+                x="5" y="0" 
+                width="30" height="30"
+                style="border: solid 1px black;"
+                width="10" height="10" 
+                href="egg.svg" 
+            />
+            <rect 
+                class="super_egg"
+                x="5" y="0"
+                width="30" height="30"
+                rx="2"
+                transform-origin="20 15"
+            />
+        </svg>
 
-            <div class="week">
+        <svg class="svg" viewBox="0 0 700 102">
+            <% for(var week = 0; week < weeks.length; week++) { %>
                 <% for (var day = 0; day < weeks[week].length; day++) { %>
-                    <div
-                        class="day level_<%= weeks[week][day]["level"] %>"
-                    ></div>
-
+                    <rect 
+                        class="day_<%= day %> week_<%= week %> contribution level_<%= weeks[week][day]["level"] %>"
+                        x="<%= (week * 10 + week * 3) + 7 %>" y="7"
+                        width="10" height="10"
+                        rx="2" 
+                    />
                 <% } %>
-            </div>
-
-        <% } %>
+            <% } %>
+        </svg>
     </div>
   </body>
   <style>
-    .graph {
-        display: flex;
-        gap: 3px;
+    .super_egg {
+        animation: scale_down 5s normal forwards;
+        fill: black;
     }
 
-    .week {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        gap: 3px;
-    }
-    
-    .day {
-        display: block;
-        width: 20px;
-        aspect-ratio: 1;
-        border-radius: 3px;
+    @keyframes scale_down {
+        from { 
+            transform: scale(1);
+        }
+        
+        to { 
+            transform: scale(0);
+        }
     }
 
-    .day.level_1 {
-        background: #161b22;
+    .container {
+        border: solid 1px;
+        width: 80%;
+        padding: 3rem;
     }
 
-    .day.level_2 {
-        background: #9be9a8;
+    .svg {
+        background-color: #101414;
+        border-radius: 5px;
     }
 
-    .day.level_3 {
-        background: #40c463;
+    .day_1 { 
+        animation: set_day1 0.4s normal forwards; 
     }
 
-    .day.level_4 {
-        background: #30a14e;
+    .day_2 { 
+        animation: set_day1, set_day2;
+        animation-duration: 0.4s, 0.4s;
+        animation-delay: 0s, 0.4s;
+        animation-fill-mode: none, forwards;
     }
 
-    .day.level_5 {
-        background: #216e39;
+    .day_3 { 
+        animation: set_day1, set_day2, set_day3;
+        animation-duration: 0.4s, 0.4s, 0.4s;
+        animation-delay: 0s, 0.4s, 0.8s;
+        animation-fill-mode: none, none, forwards;
     }
 
+    .day_4 { 
+        animation: set_day1, set_day2, set_day3, set_day4;
+        animation-duration: 0.4s, 0.4s, 0.4s, 0.4s;
+        animation-delay: 0s, 0.4s, 0.8s, 1.2s;
+        animation-fill-mode: none, none, none, forwards;
+    }
+
+    .day_5 { 
+        animation: set_day1, set_day2, set_day3, set_day4, set_day5;
+        animation-duration: 0.4s, 0.4s, 0.4s, 0.4s, 0.4s;
+        animation-delay: 0s, 0.4s, 0.8s, 1.2s, 1.6s;
+        animation-fill-mode: none, none, none, none, forwards;
+    }
+
+    .day_6 { 
+        animation: set_day1, set_day2, set_day3, set_day4, set_day5, set_day6;
+        animation-duration: 0.4s, 0.4s, 0.4s, 0.4s, 0.4s, 0.4s;
+        animation-delay: 0s, 0.4s, 0.8s, 1.2s, 1.6s, 2s;
+        animation-fill-mode: none, none, none, none, none, forwards;
+    }
+
+    @keyframes set_day1 {
+        from {transform: translate(0px, 0px);}
+        to {transform: translate(0px, 13px);}
+    }
+
+    @keyframes set_day2 {
+        from {transform: translate(0px, 13px);}
+        to {transform: translate(0px, 26px);}
+    }
+
+    @keyframes set_day3 {
+        from {transform: translate(0px, 26px);}
+        to {transform: translate(0px, 39px);}
+    }
+
+    @keyframes set_day4 {
+        from {transform: translate(0px, 39px);}
+        to {transform: translate(0px, 52px);}
+    }
+
+    @keyframes set_day5 {
+        from {transform: translate(0px, 52px);}
+        to {transform: translate(0px, 65px);}
+    }
+
+    @keyframes set_day6 {
+        from {transform: translate(0px, 65px);}
+        to {transform: translate(0px, 78px);}
+    }
+
+    .contribution { 
+        transform: translate(0px, 0px);
+    }
+
+    .level_1 {
+        fill: #161b22;
+    }
+
+    .level_2 {
+        fill: #0e4429;
+    }
+
+    .level_3 {
+        fill: #006d32;
+    }
+
+    .level_4 {
+        fill: #26a641;
+    }
+
+    .level_5 {
+        fill: #39d353;
+        transform: translate(0px, 0px);
+        transition: transform 0.4s normal;
+    }
+
+    @keyframes teste {
+        from {
+            transform: translateX(0px);
+            z-index: 1000;
+        }
+
+        to {
+            transform: translateX(-13px);
+        }
+    }
   </style>
 </html>

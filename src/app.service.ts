@@ -1,3 +1,4 @@
+import { Render } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -6,14 +7,28 @@ export class AppService {
     return 'Hello Niggas!';
   }
 
-  itsWorking(): string {
-    return "Its workingggg";
+  @Render('teste_old')
+  async teste(): Promise<object> {
+    const weeks = await this.getContsByDay();
+
+    console.log(weeks[0])
+    return {weeks: weeks};
   }
 
-  async getContributions(): Promise<any> {
+  getPallete(color: string): Array<string> {
+    const colors: object = {
+      green: ["#161b22", "#0e4429", "#006d32", "#26a641", "#26a641"],
+      yellow: ["red", "yellow", "green", "purple", "white"],
+      red: []
+    }
+    
+    return colors[color]
+  }
+
+  async getContributions(user: string): Promise<any> {
     const body:Object = {
       "query": `query {
-          user(login: "lucas7maciel") {
+          user(login: "${user}") {
             name
             contributionsCollection {
               contributionCalendar {
@@ -51,27 +66,15 @@ export class AppService {
 
   getLevel(val:number): number {
     //trocar por switch
-    if (val >= 10) {
-      return 5
-    }
-
-    if (val >= 7) {
-      return 4
-    }
-
-    if (val >= 4) {
-      return 3
-    }
-
-    if (val >= 1) {
-      return 2
-    }
-
+    if (val >= 10) { return 5 }
+    if (val >= 7) { return 4 }
+    if (val >= 4) { return 3 }
+    if (val >= 1) { return 2 }
     return 1
   }
 
-  async getContsByDay(): Promise<any> {
-    const contributions: Object = await this.getContributions()
+  async getContsByDay(user?: string, color? : string): Promise<any> {
+    const contributions: Object = await this.getContributions(user)
     const weeks = contributions["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
 
     //transformar em typescript
