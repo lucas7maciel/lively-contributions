@@ -1,51 +1,46 @@
-import { Controller, Get, Header, Render, Res, Req, Param, Query } from '@nestjs/common';
+import { Controller, Get, Header, Render, Res, Param, Query } from '@nestjs/common';
 import { AppService } from './app.service';
-import { Request, Response } from 'express';
+import { Response } from 'express';
+import { GlobalService as G } from './global.service';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  @Get()
+  index(): object {
+    return {
+      "message": "API is working correctly"
+    }
+  }
+
+  @Get("file")
+  file(): object{
+    return {
+      "message": "Please insert a GitHub nickname"
+    }
+  }
+
   @Get("file/:user")
   @Header('Content-Type', 'image/svg+xml')
-  @Header('Content-Disposition', 'attachment; filename="teste.svg"')
-  async getSvg(@Res() res: Response, @Param("user") user: string, @Query() query /*fazer um model*/) {
+  @Header('Content-Disposition', 'inline; filename="teste.svg"')
+  async getSvg(@Res() res: Response, @Param("user") user: string, @Query() query : {bg: string, color: string | "yellow" } /*fazer um model*/) {
     const weeks = await this.appService.getContsByDay(user);
 
     const params: object = {
       bg: query.bg || "#101414",
-      color: this.appService.getPallete(query.color || "green")
+      color: G.colors[query.color] || G.colors["green"]
     }     
 
-    res.render("teste_svg.ejs", {weeks, params})
+    console.log(user)
+    console.log(params)
+
+    res.render("graph.ejs", {weeks, params})
   }
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
-
-  @Get("visao")
-  @Render('teste_old')
-  async teste(): Promise<object> {
-    const weeks = await this.appService.getContsByDay();
-
-    console.log(weeks[0])
-    return {weeks: weeks};
-  }
-
-  /*@Get("file")
-  @Header('Content-Type', 'image/svg+xml')
-  @Header('Content-Disposition', 'attachment; filename="teste.svg"')
-  async getStaticFile(): Promise<StreamableFile> {
-    const weeks = await this.appService.getContsByDay();
-    const file: ReadStream = createReadStream(join(process.cwd(), 'views/teste_svg.ejs'));
-
-    return new StreamableFile(file);
-  }*/  
-
-  @Get("contributions")
-  async contributions(): Promise<any> {
-    return this.appService.getContsByDay();
+  @Render("maker")
+  @Get("maker")
+  maker() {
+    return {}
   }
 }

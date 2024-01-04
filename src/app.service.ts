@@ -3,28 +3,6 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello Niggas!';
-  }
-
-  @Render('teste_old')
-  async teste(): Promise<object> {
-    const weeks = await this.getContsByDay();
-
-    console.log(weeks[0])
-    return {weeks: weeks};
-  }
-
-  getPallete(color: string): Array<string> {
-    const colors: object = {
-      green: ["#161b22", "#0e4429", "#006d32", "#26a641", "#26a641"],
-      yellow: ["red", "yellow", "green", "purple", "white"],
-      red: []
-    }
-    
-    return colors[color]
-  }
-
   async getContributions(user: string): Promise<any> {
     const body:Object = {
       "query": `query {
