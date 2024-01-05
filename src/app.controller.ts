@@ -24,10 +24,11 @@ export class AppController {
   @Get("file/:user")
   @Header('Content-Type', 'image/svg+xml')
   @Header('Content-Disposition', 'inline; filename="teste.svg"')
-  async getSvg(@Res() res: Response, @Param("user") user: string, @Query() query : {bg: string, color: string | "yellow" } /*fazer um model*/) {
+  async getSvg(@Res() res: Response, @Param("user") user: string, @Query() query : {animation: string, bg: string, color: string | "yellow" } /*fazer um model*/) {
     const weeks = await this.appService.getContsByDay(user);
 
     const params: object = {
+      animation: query.animation || "drop",
       bg: query.bg || "#101414",
       color: G.colors[query.color] || G.colors["green"]
     }     
