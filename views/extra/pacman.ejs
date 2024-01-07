@@ -1,0 +1,32 @@
+
+<circle 
+    class="pacman"
+    cx="12" cy="12" 
+    transform-origin="12 12"
+    r="3.75"
+/>
+
+<style>
+  .pacman {
+    stroke: yellow;
+    stroke-dasharray: 18.9, 15;
+    stroke-dashoffset: -2.25;
+    stroke-width: 7.5;
+
+
+    fill: none;
+
+    animation: chomp 0.5s linear infinite alternate;
+  }
+
+  @keyframes chomp {
+    from {
+        stroke-dasharray: 23.55, 15;
+        stroke-dashoffset: 0;
+    }
+    to {
+        stroke-dasharray: 18.9, 15;
+        stroke-dashoffset: -2.25;
+    }
+
+</style>

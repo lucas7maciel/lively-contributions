@@ -1,0 +1,137 @@
+<rect
+        class="snake"
+
+        x="7" y="7"
+        width="10" height="10"
+        
+        rx="2"
+    ></rect>
+
+    <style>
+        .snake {
+            fill: red;
+            animation: move_1, move_2, move_3, move_4, move_5, move_6, move_7, move_8, move_9, move_10, move_11, move_12, move_13;
+            animation-duration: 10s, 0.5s;
+            animation-delay: 0s, 10s, 10.5s, 20.5s, 21s, 31s, 31.5s, 41.5s, 42s, 52s, 52.5s, 62.5s, 63s;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+        }
+
+        @keyframes move_1 {
+            from {
+                transform: translateX(0px);
+            }
+            to {
+                transform: translateX(<%= ((weeks.length - 1) * 13) %>px);
+            }
+
+        }
+
+        @keyframes move_2 {
+            from {
+                transform: translate(<%= ((weeks.length - 1) * 13) %>px, 0px);
+            }
+            to {
+                transform: translate(<%= ((weeks.length - 1) * 13) %>px, 13px);
+            }
+        }
+
+        @keyframes move_3 {
+            from {
+                transform: translate(<%= ((weeks.length - 1) * 13) %>px, 13px);
+            }
+            to {
+                transform: translate(0px, 13px);
+            }
+        }
+
+        @keyframes move_4 {
+            from {
+                transform: translate(0px, 13px);
+            }
+            to {
+                transform: translate(0px, 26px);
+            }
+        }
+
+        @keyframes move_5 {
+            from {
+                transform: translate(0px, 26px);
+            }
+            to {
+                transform: translate(<%= ((weeks.length - 1) * 13) %>px, 26px);
+            }
+        }
+
+        @keyframes move_6 {
+            from {
+                transform: translate(<%= ((weeks.length - 1) * 13) %>px, 26px);
+            }
+            to {
+                transform: translate(<%= ((weeks.length - 1) * 13) %>px, 39px);
+            }
+        }
+
+        @keyframes move_7 {
+            from {
+                transform: translate(<%= ((weeks.length - 1) * 13) %>px, 39px);
+            }
+            to {
+                transform: translate(0, 39px);
+            }
+        }
+
+        @keyframes move_8 {
+            from {
+                transform: translate(0px, 39px);
+            }
+            to {
+                transform: translate(0px, 52px);
+            }
+        }
+
+        @keyframes move_9 {
+            from {
+                transform: translate(0px, 52px);
+            }
+            to {
+                transform: translate(<%= ((weeks.length - 1) * 13) %>px, 52px);
+            }
+        }
+
+        @keyframes move_10 {
+            from {
+                transform: translate(<%= ((weeks.length - 1) * 13) %>px, 52px);
+            }
+            to {
+                transform: translate(<%= ((weeks.length - 1) * 13) %>px, 65px);
+            }
+        }
+
+        @keyframes move_11 {
+            from {
+                transform: translate(<%= ((weeks.length - 1) * 13) %>px, 65px);
+            }
+            to {
+                transform: translate(0px, 65px);
+            }
+        }
+
+        @keyframes move_12 {
+            from {
+                transform: translate(0px, 65px);
+            }
+            to {
+                transform: translate(0px, 78px);
+            }
+        }
+
+        @keyframes move_13 {
+            from {
+                transform: translate(0px, 78px);
+            }
+            to {
+                transform: translate(<%= ((weeks.length - 1) * 13) %>px, 78px);
+            }
+        }
+    </style>

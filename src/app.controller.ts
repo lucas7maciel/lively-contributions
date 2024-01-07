@@ -2,6 +2,7 @@ import { Controller, Get, Header, Render, Res, Param, Query } from '@nestjs/comm
 import { AppService } from './app.service';
 import { Response } from 'express';
 import { GlobalService as G } from './global.service';
+import { styleQuery } from './graph.model';
 
 @Controller()
 export class AppController {
@@ -24,12 +25,12 @@ export class AppController {
   @Get("file/:user")
   @Header('Content-Type', 'image/svg+xml')
   @Header('Content-Disposition', 'inline; filename="teste.svg"')
-  async getSvg(@Res() res: Response, @Param("user") user: string, @Query() query : {animation: string, bg: string, color: string | "yellow" } /*fazer um model*/) {
+  async getSvg(@Res() res: Response, @Param("user") user: string, @Query() query : styleQuery ) {
     const weeks = await this.appService.getContsByDay(user);
 
     const params: object = {
-      animation: query.animation || "drop",
-      bg: query.bg || "#101414",
+      animation: query.animation || "scale",
+      bg: G.bg[query.bg] || G.bg["dark"],
       color: G.colors[query.color] || G.colors["green"]
     }     
 
