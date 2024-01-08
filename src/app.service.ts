@@ -1,4 +1,3 @@
-import { Render } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -42,8 +41,7 @@ export class AppService {
     return res.json();
   }
 
-  getLevel(val:number): number {
-    //trocar por switch
+  getLevel(val: number): number {
     if (val >= 10) { return 5 }
     if (val >= 7) { return 4 }
     if (val >= 4) { return 3 }
@@ -51,7 +49,7 @@ export class AppService {
     return 1
   }
 
-  async getContsByDay(user?: string, color? : string): Promise<any> {
+  async getContsByDay(user?: string): Promise<any> {
     const contributions: Object = await this.getContributions(user)
     const weeks = contributions["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
 

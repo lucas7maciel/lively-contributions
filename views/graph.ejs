@@ -1,16 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="700" height="102" viewBox="0 0 700 102" class="svg" fill="none" role="img" aria-labelledby="descId">
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="<%= params.animation == "spaceship" ? "170" : "102" %>" viewBox="0 0 700 <%= params.animation == "spaceship" ? "170" : "102" %>" class="svg" fill="none" role="img" aria-labelledby="descId">
 
     <% for(var week = 0; week < weeks.length; week++) { %>
         
         <% for (var day = 0; day < weeks[week].length; day++) { %>7
 
             <%# there is a need for rects to be generated differently depending on the animation %>    
-            <%- include(`rects/${params.animation || "drop"}`, {weeks, week, day}) %>
+            <%- include(`contributions/${params.animation || "drop"}`, {weeks, week, day}) %>
         
         <% } %>
     <% } %>
 
-    <%- include("extra/pacman") %>
     <%# stylesheets that will set the parameters passed by the request %>
     <%- include("config/general") %>
     <%- include("config/colors") %>

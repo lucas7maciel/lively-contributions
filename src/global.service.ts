@@ -1,5 +1,6 @@
 
 export class GlobalService {
+  //styling properties
   static colors: object = {
     green: ['#161b22', '#0e4429', '#006d32', '#26a641', '#26a641'],
     yellow: ['#4d4a00', '#806e00', '#b3a300', '#e5c100', '#ffd700'],
