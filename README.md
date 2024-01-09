@@ -1,3 +1,4 @@
+_Under development_
 # A project that generates a custom contribution chart in svg format using NestJS and EJS!
 
 ## How to generate your graph
