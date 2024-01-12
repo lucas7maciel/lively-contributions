@@ -31,7 +31,7 @@ export class AppService {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Authorization": `Bearer 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`
+      "Authorization": `Bearer ${"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"}`
     },
     body: JSON.stringify(body),
   };
@@ -51,7 +51,6 @@ export class AppService {
 
   async getContsByDay(user: string): Promise<any> {
     const contributions: Object = await this.getContributions(user)
-    console.log(contributions)
     const weeks = contributions["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
 
     //transformar em typescript

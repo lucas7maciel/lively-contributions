@@ -30,11 +30,11 @@ export class AppController {
 
     const params: object = {
       animation: query.animation || "scale",
-      bg: G.bg[query.bg] || G.bg["dark"],
-      color: G.colors[query.color] || G.colors["green"]
+      bg: G.bg[query.bg] || query.bg || G.bg["dark"],
+      color: G.colors[query.color] || G.colors["green"],
+      padding: query.padding || 7,
+      count: query.count
     }     
-
-    console.log(params)
 
     res.render("graph.ejs", {weeks, params})
   }

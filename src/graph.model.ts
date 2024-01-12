@@ -2,7 +2,8 @@
 export interface styleQuery {
     bg?: string,
     animation?: string,
-    color?: string
-    //speed: number
+    color?: string,
+    padding?: number,
+    count?: boolean
 }
 
