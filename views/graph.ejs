@@ -10,21 +10,9 @@
         <% } %>
     <% } %>
 
-    <text 
-        class="counter"
-        style="display: <%= params.count ? "block" : "none" %>;"
-        x="50%" y="115"
-        dominant-baseline="middle" text-anchor="middle"
-        
-        font-family="monospace"
-        font-weight="bold"
-        font-size="20px"
-        fill="white"
-        >12 CONTRIBUTIONS
-    </text>
-
     <%# stylesheets that will set the parameters passed by the request %>
     <%- include("config/general") %>
     <%- include("config/colors") %>
     <%- include(`animations/${params.animation || "drop"}`) %>
+    <%- include("config/counter") %>
 </svg>

@@ -31,7 +31,7 @@ export class AppService {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${"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"}`
+      "Authorization": `Bearer ${process.env.GITHUB_TOKEN}`
     },
     body: JSON.stringify(body),
   };
@@ -53,7 +53,7 @@ export class AppService {
     const contributions: Object = await this.getContributions(user)
     const weeks = contributions["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
 
-    //transformar em typescript
+    //transformar em typescript e consertar
     const formatedWeeks = weeks.map(week => (
       week["contributionDays"].map(day => {
         return {
