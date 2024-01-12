@@ -15,14 +15,14 @@ export class AppController {
     }
   }
 
-  @Get("file")
+  @Get("graph")
   file(): object{
     return {
       "message": "Please insert a GitHub nickname"
     }
   }
 
-  @Get("file/:user")
+  @Get("graph/:user")
   @Header('Content-Type', 'image/svg+xml')
   @Header('Content-Disposition', 'inline; filename="teste.svg"')
   async getSvg(@Res() res: Response, @Param("user") user: string, @Query() query : styleQuery ) {
@@ -34,7 +34,6 @@ export class AppController {
       color: G.colors[query.color] || G.colors["green"]
     }     
 
-    console.log(user)
     console.log(params)
 
     res.render("graph.ejs", {weeks, params})
@@ -42,7 +41,7 @@ export class AppController {
 
   @Render("maker")
   @Get("maker")
-  maker() {
+  maker() { //como corrigir isso
     return {}
   }
 }

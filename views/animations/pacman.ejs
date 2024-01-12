@@ -7,6 +7,7 @@
 />
 
 <style>
+  /*tirar o scale e trocar por matematica*/
   .contribution {
     transform: scale(0.8);
     animation: be-eaten 2s ease-out;
@@ -34,7 +35,9 @@
     stroke-width: 7.5;
 
     fill: none;
+  }
 
+  .pacman {
     /*move through the graph*/ /*otimizar esse css imenso*/
     animation: 
       chomp,
@@ -86,23 +89,23 @@
       transform: translateX(0px);
     }
     to {
-      transform: translateX(<%= ((weeks.length - 1) * 13) %>px);
+      transform: translateX(<%= (weeks.length - 1) * 13 %>px);
     }
   }
 
   @keyframes move_2 {
     from {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 0px) rotate(90deg);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 0px) rotate(90deg);
     }
 
     to {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 13px) rotate(90deg);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 13px) rotate(90deg);
     }
   }
 
   @keyframes move_3 {
     from {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 13px) rotate(180deg);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 13px) rotate(180deg);
     }
     to {
       transform: translate(0px, 13px) rotate(180deg);
@@ -123,22 +126,22 @@
       transform: translate(0px, 26px);
     }
     to {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 26px);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 26px);
     }
   }
 
   @keyframes move_6 {
     from {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 26px) rotate(90deg);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 26px) rotate(90deg);
     }
     to {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 39px) rotate(90deg);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 39px) rotate(90deg);
     }
   }
 
   @keyframes move_7 {
     from {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 39px) rotate(180deg);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 39px) rotate(180deg);
     }
     to {
       transform: translate(0, 39px) rotate(180deg);
@@ -159,22 +162,22 @@
       transform: translate(0px, 52px);
     }
     to {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 52px);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 52px);
     }
   }
 
   @keyframes move_10 {
     from {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 52px) rotate(90deg);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 52px) rotate(90deg);
     }
     to {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 65px) rotate(90deg);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 65px) rotate(90deg);
     }
   }
 
   @keyframes move_11 {
     from {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 65px) rotate(180deg);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 65px) rotate(180deg);
     }
     to {
       transform: translate(0px, 65px) rotate(180deg);
@@ -195,7 +198,7 @@
       transform: translate(0px, 78px);
     }
     to {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 78px);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 78px);
     }
   }
 </style>

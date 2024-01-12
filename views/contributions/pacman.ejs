@@ -1,11 +1,11 @@
 <rect 
     class="day_<%= day %> week_<%= week %> contribution level_<%= weeks[week][day]["level"] %>"
-    style="animation-delay: <%= day % 2 == 0 ? 10 / weeks.length * week + (day * 10.5) : 10 / weeks.length * (weeks.length - week) + (day * 10.5) %>s;"
+    style="animation-delay: <%= day % 2 == 0 ? 10 / weeks.length * week + day * 10.5 : 10 / weeks.length * (weeks.length - week) + day * 10.5 %>s;"
 
-    x="<%= (week * 10 + week * 3) + 7 %>" y="<%= (day * 10 + day * 3) + 7 %>"
+    x="<%= week * 13 + 7 %>" y="<%= day * 13 + 7 %>"
     width="10" height="10"
 
-    transform-origin="<%= (week * 10 + week * 3) + 12 %> <%= (day * 10 + day * 3) + 12 %>"
+    transform-origin="<%= week * 13 + 12 %> <%= day * 13 + 12 %>"
     
     rx="5" 
 />

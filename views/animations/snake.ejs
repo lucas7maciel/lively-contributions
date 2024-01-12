@@ -3,6 +3,7 @@
 <rect class="snake" x="7" y="7" width="10" height="10" rx="2"></rect>
 
 <style>
+  /*Matematica*/
   .contribution {
     transform: scale(0.75);
   }
@@ -37,7 +38,7 @@
   .tail {
     animation-delay: <% [0, 10, 10.5, 20.5, 21, 31, 31.5, 41.5, 42, 52, 52.5, 62.5, 63].forEach((time, index) => {
                 %>
-                    <%= `${time + (10 / weeks.length * (index + 1))}s${index != 12 ? "," : ""}` %>
+                    <%= `${time + 10 / weeks.length * (index + 1)}s${index != 12 ? "," : ""}` %>
                 <%
     }) %>
     ;
@@ -48,22 +49,22 @@
       transform: translateX(0px);
     }
     to {
-      transform: translateX(<%= ((weeks.length - 1) * 13) %>px);
+      transform: translateX(<%= (weeks.length - 1) * 13 %>px);
     }
   }
 
   @keyframes move_2 {
     from {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 0px);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 0px);
     }
     to {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 13px);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 13px);
     }
   }
 
   @keyframes move_3 {
     from {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 13px);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 13px);
     }
     to {
       transform: translate(0px, 13px);
@@ -84,22 +85,22 @@
       transform: translate(0px, 26px);
     }
     to {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 26px);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 26px);
     }
   }
 
   @keyframes move_6 {
     from {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 26px);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 26px);
     }
     to {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 39px);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 39px);
     }
   }
 
   @keyframes move_7 {
     from {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 39px);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 39px);
     }
     to {
       transform: translate(0, 39px);
@@ -120,22 +121,22 @@
       transform: translate(0px, 52px);
     }
     to {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 52px);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 52px);
     }
   }
 
   @keyframes move_10 {
     from {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 52px);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 52px);
     }
     to {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 65px);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 65px);
     }
   }
 
   @keyframes move_11 {
     from {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 65px);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 65px);
     }
     to {
       transform: translate(0px, 65px);
@@ -156,7 +157,7 @@
       transform: translate(0px, 78px);
     }
     to {
-      transform: translate(<%= ((weeks.length - 1) * 13) %>px, 78px);
+      transform: translate(<%= (weeks.length - 1) * 13 %>px, 78px);
     }
   }
 </style>
