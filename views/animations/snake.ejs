@@ -1,5 +1,5 @@
-<rect class="tail tail-2" x="8" y="8" width="8" height="8" transform-origin="12 12" rx="3"></rect>
-<rect class="tail tail-1" x="8" y="8" width="8" height="8" transform-origin="12 12" rx="3"></rect>
+
+<rect class="tail" x="0" y="0" width="10" height="10" rx="3"></rect>
 <rect class="snake" x="0" y="0" width="10" height="10" rx="2"></rect>
 
 <style>
@@ -13,18 +13,8 @@
     animation: scale_up 0.4s ease-out forwards;
   }
 
-  @keyframes scale_up {
-    from {
-      transform: scale(0);
-    }
-
-    to {
-      transform: scale(1.25);
-    }
-  }
-
   /*move snake through the graph*/
-  .snake, .tail {
+  .snake {
     fill: red;
     animation: move_1, move_2, move_3, move_4, move_5, move_6, move_7, move_8,
       move_9, move_10, move_11, move_12, move_13;
@@ -36,12 +26,20 @@
   }
 
   .tail {
-    animation-delay: <% [0, 10, 10.5, 20.5, 21, 31, 31.5, 41.5, 42, 52, 52.5, 62.5, 63].forEach((time, index) => {
-                %>
-                    <%= `${time + 10 / weeks.length * (index + 1)}s${index != 12 ? "," : ""}` %>
-                <%
-    }) %>
-    ;
+    opacity: 0;
+    fill: yellow;
+
+    animation: scale-up, move_1, move_2, move_3, move_4, move_5, move_6, move_7, move_8,
+      move_9, move_10, move_11, move_12, move_13;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-duration: 0.6s, 10s, 0.5s, 10s, 0.5s, 10s, 0.5s, 10s, 0.5s, 10s, 0.5s, 10s, 0.5s, 10s;
+    animation-delay: 0.566s, 0.189s,10.189s,10.736s,20.736s,21.189s,31.189s,31.736s,41.736s,42.189s,52.189s,52.736s,62.736s,63.189s;
+  }
+
+  @keyframes scale-up {
+    from {opacity: 0;}
+    to {opacity: 1;}
   }
 
   @keyframes move_1 {
