@@ -38,6 +38,8 @@ _http://localhost:3000/file/lucas7maciel/?animation=scale&color=yellow_
 _http://localhost:3000/file/lucas7maciel/?animation=drop&color=blue&bg=light_
 <img src="https://raw.githubusercontent.com/lucas7maciel/lively-contributions/4d3a907095987b5cf941796e02123fac82b4272b/example/light_blue_drop.svg?token=ATHNILIU3AEGKUJRXCFHH3DFTTAQK">
 
+_If the animations were not clear. You can click to open the generated svg_
+
 ## Installation
 
 ```bash
