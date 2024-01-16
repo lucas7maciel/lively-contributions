@@ -17,6 +17,6 @@ export class GlobalService {
   }
 
   static animation: Array<string> = [
-    "scale", "drop", "snake", "pacman", "spaceship"
+    "scale", "drop", "pacman" //, "spaceship", "snake" 
   ]
 }
