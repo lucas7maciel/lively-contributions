@@ -1,4 +1,3 @@
-_Under development_
 # A project that generates a custom contribution chart in svg format using NestJS and EJS!
 
 ## How to generate your graph
@@ -18,14 +17,16 @@ Set your styling options in the query params
 - Purple.
 
 ### Background - bg (Default: Dark)
-- Dark;
-- Light.
+- Dark (#101414);
+- Light (#f5f5f5);
+- Any hex color (Just enter the code without the '#').
 
 ### Animation - animation (Default: Scale)
 - Scale;
 - Drop;
-- Pac Man.
-_Snake and Spaceship animations in production_
+- Pac Man;
+
+_Snake and Spaceship animations being developed_
 
 ## Examples
 _http://localhost:3000/file/lucas7maciel/?animation=pacman_
