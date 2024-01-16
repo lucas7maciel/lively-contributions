@@ -1,4 +1,3 @@
-_Under development_
 # A project that generates a custom contribution chart in svg format using NestJS and EJS!
 
 ## How to generate your graph
@@ -26,6 +25,7 @@ Set your styling options in the query params
 - Scale;
 - Drop;
 - Pac Man;
+
 _Snake and Spaceship animations in production_
 
 ## Examples
