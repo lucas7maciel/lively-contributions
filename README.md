@@ -18,13 +18,14 @@ Set your styling options in the query params
 - Purple.
 
 ### Background - bg (Default: Dark)
-- Dark;
-- Light.
+- Dark (#101414);
+- Light (#f5f5f5);
+- Any hex color (Just enter the code without the '#').
 
 ### Animation - animation (Default: Scale)
 - Scale;
 - Drop;
-- Pac Man.
+- Pac Man;
 _Snake and Spaceship animations in production_
 
 ## Examples
