@@ -26,7 +26,7 @@ Set your styling options in the query params
 - Drop;
 - Pac Man;
 
-_Snake and Spaceship animations in production_
+_Snake and Spaceship animations being developed_
 
 ## Examples
 _http://localhost:3000/file/lucas7maciel/?animation=pacman_
