@@ -2,10 +2,10 @@
     class="day_<%= day %> week_<%= week %> contribution level_<%= weeks[week][day]["level"] %>"
     style="animation-delay: <%= day % 2 == 0 ? 10 / weeks.length * week + day * 10.5 : 10 / weeks.length * (weeks.length - week) + day * 10.5 %>s;"
 
-    x="<%= week * 13 %>" y="<%= day * 13 %>"
+    x="<%= week * 13 + 7 %>" y="<%= day * 13 + 7 %>"
     width="10" height="10"
 
-    transform-origin="<%= week * 13 + 5 %> <%= day * 13 + 5 %>"
+    transform-origin="<%= week * 13 + 12 %> <%= day * 13 + 12 %>"
     
     rx="5" 
 />
